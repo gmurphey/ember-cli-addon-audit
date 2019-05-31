@@ -11,7 +11,7 @@ function promisedRequest(url) {
 
       response.on('end', function() {
         try {
-          resolve(JSON.parse(data));
+          resolve(data);
         } catch (e) {
           throw e;
         }
@@ -24,22 +24,21 @@ function promisedRequest(url) {
 
 module.exports = async function(addonNames) {
   let requests = addonNames.map((addon) => {
-    return promisedRequest(`https://emberobserver.com/api/v2/addons?filter%5Bname%5D=${addon}&page%5Blimit%5D=1`)
+    addon = addon.replace(/\@|\/|\./g, '-')
+    return promisedRequest(`https://emberobserver.com/badges/${addon}.svg`);
   });
 
   let responses = await Promise.all(requests);
 
-  let successfulResponses = responses.filter((response) => {
-    return !response.errors;
-  })
-
-  return successfulResponses.map((response, i) => {
-    let { name, score } = response.data[0].attributes;
+  return responses.map((response, i) => {
+    let scoreRegexp = /\<text.*\>(\d+\.?\d?)\s\/\s10\<\/text\>/gi;
+    let scoreMatches = scoreRegexp.exec(response);
+    let score = (scoreMatches && scoreMatches.length > 1 && scoreMatches[1]) || '?';
 
     return {
-      name,
+      name: addonNames[i],
       score,
-      link: `https://emberobserver.com/addons/${name}`
+      link: `https://emberobserver.com/addons/${addonNames[i]}`
     };
   });
 }
