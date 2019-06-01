@@ -1,4 +1,7 @@
-const { table } = require('table');
+const {
+  table,
+  getBorderCharacters
+ } = require('table');
 
 module.exports = function(metadata) {
   const config = {
@@ -12,6 +15,14 @@ module.exports = function(metadata) {
       2: {
         alignment: 'right'
       }
+    },
+    border: getBorderCharacters(`void`),
+    columnDefault: {
+      paddingLeft: 0,
+      paddingRight: 1
+    },
+    drawHorizontalLine() {
+      return false;
     }
   };
 
