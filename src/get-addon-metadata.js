@@ -33,7 +33,7 @@ module.exports = async function(addonNames) {
   return responses.map((response, i) => {
     let scoreRegexp = /\<text.*\>(\d+\.?\d?)\s\/\s10\<\/text\>/gi;
     let scoreMatches = scoreRegexp.exec(response);
-    let score = (scoreMatches && scoreMatches.length > 1 && scoreMatches[1]) || '?';
+    let score = (scoreMatches && scoreMatches.length > 1 && parseFloat(scoreMatches[1])) || '?';
 
     return {
       name: addonNames[i],
