@@ -9,6 +9,8 @@ module.exports = {
   works: 'insideProject',
 
   async run() {
+    console.warn('Warning: This command sends your top-level dependencies (and dev dependencies) to Ember Observer to determine the score.\n\n')
+
     let metadata = await emberCliAddonAudit();
     let output = reporter(metadata);
 

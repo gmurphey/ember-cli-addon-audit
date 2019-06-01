@@ -18,9 +18,13 @@ ember install ember-cli-addon-audit
 
 ## Usage
 
+**Warning:** These commands send your top-level dependencies (and dev dependencies) to Ember Observer to determine the score.
+
 Inside your project directory, if you installed globally run:
 
+```
 ember-cli-addon-audit
+```
 
 or if you installed as an Ember CLI command run
 
