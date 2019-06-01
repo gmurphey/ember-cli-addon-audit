@@ -2,6 +2,7 @@
 
 const emberCliAddonAudit = require('.');
 const reporter = require('./reporter');
+const chalk = require('chalk');
 
 module.exports = {
   name: 'addon-audit',
@@ -9,7 +10,7 @@ module.exports = {
   works: 'insideProject',
 
   async run() {
-    console.warn('Warning: This command sends your top-level dependencies (and dev dependencies) to Ember Observer to determine the score.\n\n')
+    console.warn(chalk.yellow('Warning: This command sends your top-level dependencies (and dev dependencies) to Ember Observer to determine the score.\n\n'))
 
     let metadata = await emberCliAddonAudit();
     let output = reporter(metadata);
