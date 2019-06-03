@@ -24,14 +24,14 @@ function promisedRequest(url) {
 
 module.exports = async function(addonNames) {
   let requests = addonNames.map((addon) => {
-    addon = addon.replace(/\@|\/|\./g, '-')
+    addon = addon.replace(/@|\/|\./g, '-')
     return promisedRequest(`https://emberobserver.com/badges/${addon}.svg`);
   });
 
   let responses = await Promise.all(requests);
 
   return responses.map((response, i) => {
-    let scoreRegexp = /\<text.*\>(\d+\.?\d?)\s\/\s10\<\/text\>/gi;
+    let scoreRegexp = /<text.*>(\d+\.?\d?)\s\/\s10<\/text>/gi;
     let scoreMatches = scoreRegexp.exec(response);
     let score = (scoreMatches && scoreMatches.length > 1 && parseFloat(scoreMatches[1])) || '?';
 

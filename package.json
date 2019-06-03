@@ -11,11 +11,18 @@
   "bin": {
     "ember-cli-addon-audit": "bin/ember-cli-addon-audit.js"
   },
+  "scripts": {
+    "lint": "eslint ."
+  },
   "dependencies": {
     "chalk": "^2.4.2",
     "find-plugins": "^1.1.7",
     "lodash.orderby": "^4.6.0",
     "table": "^5.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-node": "^9.1.0"
   },
   "ember-addon": {
     "main": "src/ember-addon.js"
