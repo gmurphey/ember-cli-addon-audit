@@ -31,3 +31,9 @@ or if you installed as an Ember CLI command run
 ```
 ember addon-audit
 ```
+
+### Available Options
+
+| Name        | Default Value | Type     | Description                                             |
+|-------------|---------------|----------|---------------------------------------------------------|
+| `threshold` | `10`          | `Number` | Only report addons that score at or below a given value |

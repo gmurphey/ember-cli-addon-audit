@@ -1,15 +1,22 @@
+const args = require('./args');
 const getAddonNames = require('./get-addon-names');
 const getAddonMetadata = require('./get-addon-metadata');
-const orderBy = require('lodash.orderby');
+const filterData = require('./filter-data');
+const sortData = require('./sort-data');
 
-module.exports = async function emberCliAddonAudit() {
+module.exports = async function emberCliAddonAudit(options) {
+  options = Object.keys(args).reduce((opts, key) => {
+    opts[key] = options[key];
+
+    if (!opts[key]) {
+      opts[key] = args[key].default;
+    }
+
+    return opts;
+  }, {});
+
   let addonNames = getAddonNames();
   let metadata = await getAddonMetadata(addonNames);
-  let unscoredAddons = metadata.filter(({ score }) => score === '?');
-  let scoredAddons = metadata.filter(({ score }) => score !== '?');
 
-  return orderBy(scoredAddons, ['score'], ['desc'])
-    .concat(
-      unscoredAddons
-    );
+  return sortData(filterData(metadata, options), options);
 }
