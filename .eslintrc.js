@@ -16,5 +16,13 @@ module.exports = {
   },
   rules: {
     'no-console': 0
-  }
+  },
+  overrides: [
+    {
+      files: 'tests/**/*.js',
+      rules: {
+        'node/no-unpublished-require': 0
+      }
+    }
+  ]
 };

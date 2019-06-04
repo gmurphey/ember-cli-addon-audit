@@ -23,7 +23,9 @@
   },
   "devDependencies": {
     "eslint": "^5.16.0",
-    "eslint-plugin-node": "^9.1.0"
+    "eslint-plugin-node": "^9.1.0",
+    "handlebars": "^4.1.2",
+    "nock": "^10.0.6"
   },
   "ember-addon": {
     "main": "src/ember-addon.js"
