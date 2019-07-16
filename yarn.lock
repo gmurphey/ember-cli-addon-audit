@@ -1027,10 +1027,10 @@ supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
-table@^5.2.3, table@^5.4.2:
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/table/-/table-5.4.2.tgz#e837706859a17b5a9a6352c6695d4c8534543b4d"
-  integrity sha512-DQqgZw837CvGJ/IDqjHX3ZCY9RWlB3jEpbPURQaTMZPbuYEV+F58RGfPG1WMvghzXKFQyvIShcD4bSLiIkkuUg==
+table@^5.2.3, table@^5.4.3:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/table/-/table-5.4.3.tgz#1f6a1377966ce70a33230d9457fb48ac173d216b"
+  integrity sha512-TZwDoOgrIMgcfRxLkCCrxg8U49WQ2SfoDC/PDTeVZQ/cmOpDeJBBsHLS9r5IHXTxJKvk+lqfj97cIRy+nfGp3w==
   dependencies:
     ajv "^6.10.2"
     lodash "^4.17.14"
