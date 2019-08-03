@@ -10,11 +10,7 @@ function promisedRequest(url) {
       });
 
       response.on('end', function() {
-        try {
-          resolve(data);
-        } catch (e) {
-          throw e;
-        }
+        resolve(data);
       });
     });
 
