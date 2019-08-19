@@ -22,7 +22,7 @@
     "yargs": "^13.3.0"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "^6.2.0",
     "eslint-plugin-node": "^9.1.0"
   },
   "ember-addon": {
