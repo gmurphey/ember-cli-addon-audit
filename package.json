@@ -19,7 +19,7 @@
     "find-plugins": "^1.1.7",
     "lodash.orderby": "^4.6.0",
     "table": "^5.4.6",
-    "yargs": "^15.3.1"
+    "yargs": "^17.0.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
