@@ -18,7 +18,7 @@
     "chalk": "^3.0.0",
     "find-plugins": "^1.1.7",
     "lodash.orderby": "^4.6.0",
-    "table": "^5.4.6",
+    "table": "^6.7.0",
     "yargs": "^15.3.1"
   },
   "devDependencies": {
